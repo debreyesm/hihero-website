@@ -16,6 +16,11 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
   />
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
   <style>
     :root {
       --navy: #082342;
@@ -1103,6 +1108,39 @@
         bottom: 15px;
       }
     }
+
+
+    /* Exact Home page header and footer styling */
+    body{font-family:Inter,Arial,sans-serif}
+    body > header{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.96);color:var(--ink);border-bottom:1px solid #E3E8EE;backdrop-filter:blur(12px);box-shadow:none}
+    body > header .nav{min-height:82px;display:flex;align-items:center;gap:28px}
+    body > header .logo img{width:250px;max-width:100%;height:auto}
+    body > header .links{margin-left:auto;display:flex;gap:24px;font-weight:700;font-size:14px}
+    body > header .links a{padding:29px 0;border-bottom:3px solid transparent;text-transform:none;color:inherit}
+    body > header .links a:hover,body > header .links a.active{color:#E77A2F;border-color:#E77A2F}
+    body > header .menu{display:none;margin-left:auto;border:0;background:none;color:#172334;font-size:26px;cursor:pointer}
+    body > header .btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 24px;border-radius:12px;background:#E77A2F;color:#fff;font-weight:800;border:2px solid #E77A2F;text-transform:none;letter-spacing:0}
+
+    body > footer{background:#081F37;color:rgba(255,255,255,.7);padding:60px 0 24px}
+    body > footer .footer-grid{display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:45px}
+    body > footer .logo img{width:250px;height:auto;filter:none}
+    body > footer h3{font-family:Inter,Arial,sans-serif;color:#fff;font-size:16px}
+    body > footer a{display:block;margin:6px 0;color:inherit}
+    body > footer .bottom{margin-top:40px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);display:flex;justify-content:space-between}
+
+    @media(max-width:920px){
+      body > header .menu{display:block}
+      body > header .links{display:none;position:absolute;top:82px;left:18px;right:18px;background:#fff;flex-direction:column;padding:15px;border-radius:14px;box-shadow:0 18px 55px rgba(8,31,55,.14)}
+      body > header .links.open{display:flex}
+      body > header .links a{padding:12px;border:0}
+      body > header .nav>.btn{display:none}
+    }
+    @media(max-width:620px){
+      body > header .logo img{width:210px}
+      body > footer .footer-grid{grid-template-columns:1fr}
+      body > footer .bottom{flex-direction:column;align-items:flex-start}
+    }
+
   </style>
 </head>
 
@@ -1121,35 +1159,17 @@
     with the URL of your actual HiHero worker application.
   -->
 
-  <header class="site-header">
+  <header>
     <div class="container nav">
-      <a class="logo" href="index.html" aria-label="HiHero Staffing home">
-       <img src="hihero-logo.png" alt="HiHero Staffing LLC">
-      </a>
-
-      <button
-        class="menu-button"
-        type="button"
-        aria-label="Open navigation menu"
-        aria-expanded="false"
-      >
-        <i class="fa-solid fa-bars"></i>
-      </button>
-
-      <nav class="nav-links" aria-label="Main navigation">
+      <a class="logo" href="index.html"><img src="hihero-logo.png" alt="HiHero Staffing"></a>
+      <button class="menu" type="button" aria-label="Open navigation menu" aria-expanded="false">☰</button>
+      <nav class="links" aria-label="Main navigation">
         <a href="index.html">Home</a>
         <a href="clients.html">For Clients</a>
         <a class="active" href="for-workers.html">For Workers</a>
-        <a href="about.html">About Us</a>
         <a href="contact.html">Contact</a>
       </nav>
-
-      <a class="header-phone" href="tel:+13525572476">
-        <i class="fa-solid fa-phone"></i>
-        352-557-2476
-      </a>
-
-      <a class="header-cta" href="#apply">Join Our Worker List</a>
+      <a class="btn" href="contact.html">Request Staff</a>
     </div>
   </header>
 
@@ -1685,60 +1705,27 @@
   </main>
 
   <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-         <img src="hihero-logo.png" alt="HiHero Staffing LLC">
-          <p class="footer-about">
-            On-demand hospitality staffing support for hotels, resorts, Airbnb
-            hosts, vacation rental managers and event venues across Central Florida.
-          </p>
-        </div>
-
-        <div>
-          <h3 class="footer-title">Quick Links</h3>
-          <div class="footer-links">
-            <a href="index.html">Home</a>
-            <a href="clients.html">For Clients</a>
-            <a href="for-workers.html">For Workers</a>
-            <a href="about.html">About Us</a>
-            <a href="contact.html">Contact</a>
-          </div>
-        </div>
-
-        <div>
-          <h3 class="footer-title">Contact HiHero</h3>
-          <div class="footer-contact">
-            <a href="tel:+13525572476">
-              <i class="fa-solid fa-phone"></i>
-              <span>352-557-2476</span>
-            </a>
-
-            <a href="mailto:deborah@hiherostaff.com">
-              <i class="fa-solid fa-envelope"></i>
-              <span>deborah@hiherostaff.com</span>
-            </a>
-
-            <a
-              href="https://wa.me/13525572476"
-              target="_blank"
-              rel="noopener"
-            >
-              <i class="fa-brands fa-whatsapp"></i>
-              <span>WhatsApp HiHero</span>
-            </a>
-
-            <span>
-              <i class="fa-solid fa-location-dot"></i>
-              Central Florida
-            </span>
-          </div>
-        </div>
+    <div class="container footer-grid">
+      <div>
+        <a class="logo" href="index.html"><img src="hihero-logo.png" alt="HiHero Staffing"></a>
+        <p>On-Demand Staffing. Reliable. Fast. Done.</p>
+        <p>Serving Central Florida</p>
       </div>
-
-      <div class="copyright">
-        © <span id="year"></span> HiHero Staffing LLC. All rights reserved.
+      <div>
+        <h3>Explore</h3>
+        <a href="clients.html">For Clients</a>
+        <a href="for-workers.html">For Workers</a>
+        <a href="contact.html">Contact</a>
       </div>
+      <div>
+        <h3>Contact</h3>
+        <a href="tel:+13525572476">352-557-2476</a>
+        <a href="mailto:deborah@hiherostaff.com">deborah@hiherostaff.com</a>
+      </div>
+    </div>
+    <div class="container bottom">
+      <span>© <span data-year></span> HiHero Staffing LLC</span>
+      <span>Fully insured hospitality staffing support</span>
     </div>
   </footer>
 
@@ -1753,26 +1740,28 @@
   </a>
 
   <script>
-    const menuButton = document.querySelector(".menu-button");
-    const navLinks = document.querySelector(".nav-links");
+    const menuButton = document.querySelector(".menu");
+    const navLinks = document.querySelector(".links");
 
-    menuButton.addEventListener("click", () => {
-      const isOpen = navLinks.classList.toggle("open");
-      menuButton.setAttribute("aria-expanded", String(isOpen));
-      menuButton.innerHTML = isOpen
-        ? '<i class="fa-solid fa-xmark"></i>'
-        : '<i class="fa-solid fa-bars"></i>';
-    });
-
-    navLinks.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("open");
-        menuButton.setAttribute("aria-expanded", "false");
-        menuButton.innerHTML = '<i class="fa-solid fa-bars"></i>';
+    if (menuButton && navLinks) {
+      menuButton.addEventListener("click", () => {
+        const isOpen = navLinks.classList.toggle("open");
+        menuButton.setAttribute("aria-expanded", String(isOpen));
+        menuButton.textContent = isOpen ? "✕" : "☰";
       });
-    });
 
-    document.getElementById("year").textContent = new Date().getFullYear();
+      navLinks.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("open");
+          menuButton.setAttribute("aria-expanded", "false");
+          menuButton.textContent = "☰";
+        });
+      });
+    }
+
+    document.querySelectorAll("[data-year]").forEach((item) => {
+      item.textContent = new Date().getFullYear();
+    });
   </script>
 </body>
 </html>
